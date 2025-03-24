@@ -1,7 +1,7 @@
 
 from typer.testing import CliRunner
 
-from src.main import app
+from decard_preacher.main import app
 
 runner = CliRunner()
 

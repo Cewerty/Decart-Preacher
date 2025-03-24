@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Decart-Preacher"
+version = "0.1.0"
+description = "A simple CLI application for converting coordinates from a Cartesian three-dimensional system to a spherical three-dimensional system."
+authors = [{name = "Ilya Timofeev", email = "tydetyscoon@mail.ru"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+dependencies = [
+    "typer[all]",
+]
+
+[project.scripts]
+decart-preacher = "decard_preacher.main:app"
