@@ -26,15 +26,18 @@ def parse_number(input_str: str) -> float:
         float: Спаршеное значение из параметра.
 
     """
-    input_str = input_str.strip().lower()
+    input_str: str = input_str.strip().lower()
 
     if "/" in input_str:
+        numerator: str
+        denominator: str
         numerator, denominator = input_str.split("/")
         return parse_number(numerator) / parse_number(denominator)
 
-    sqrt_match = re.match(r"^(√|sqrt\()\s*([0-9\.]+)\s*\)?$", input_str)
+    sqrt_match: re.Match | None = re.match(r"^(√|sqrt\()\s*([0-9\.]+)\s*\)?$", input_str)
+
     if sqrt_match:
-        number = sqrt_match.group(2)
+        number: str = sqrt_match.group(2)
         return math.sqrt(float(number))
 
     try:
@@ -58,11 +61,11 @@ def convert(x: str,
     y_parsed: float
     z_parsed: float
     x_parsed, y_parsed, z_parsed = parse_number(x), parse_number(y), parse_number(z)
-    r = math.sqrt(x_parsed**2 + y_parsed**2 + z_parsed**2)
+    r: float = math.sqrt(x_parsed**2 + y_parsed**2 + z_parsed**2)
     if r == 0:
         raise ZeroDivisionError("Данные значения не подходят для конвертации в Сферическую систему координат")
-    teta = math.acos(z_parsed/r)
-    phi = math.atan2(y_parsed, x_parsed)
+    teta: float = math.acos(z_parsed/r)
+    phi: float = math.atan2(y_parsed, x_parsed)
     typer.echo(f"r = {r:.0f}, θ = {math.degrees(teta):.0f}°, ϕ = {math.degrees(phi):.0f}°")
 
 
