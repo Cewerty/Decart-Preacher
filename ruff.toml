@@ -1,0 +1,66 @@
+line-length = 120
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "test*"
+]
+
+[lint]
+select = [
+  # Базовые категории (Flake8)
+  "E",   # Ошибки (PEP8)
+  "W",   # Предупреждения (PEP8)
+  "F",   # Pyflakes
+  "C",   # Цикломатическая сложность
+  "B",   # Ловим баги (flake8-bugbear)
+  
+  # Pylint-совместимые категории
+  "PL",  # Pylint-правила
+  
+  # Дополнительные PEP-проверки
+  "A",   # Проверки на форматирование (PEP8)
+  "D",   # Докстринги (PEP257)
+  "N",   # Соглашения (PEP8-naming)
+  "Q",   # Кавычки (PEP8)
+  "UP",  # Модернизация кода (pyupgrade)
+  "I",   # Сортировка импортов (isort)
+  "G",   # Проверки на логику (flake8-logging-format)
+  
+  # Аннотации типов (PEP484, PEP585, PEP604)
+  "ANN", # Аннотации
+  "TCH", # Type checking
+]
+
+ignore = [
+  # Пример: отключаем слишком строгие правила
+  "E501",  # Длина строки (лучше настраивать через форматтер)
+  "PLR0913",  # Слишком много аргументов (Pylint-совместимое)
+]
+
+[format]
+docstring-code-format = true
+quote-style = "double"
